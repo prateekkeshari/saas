@@ -1,0 +1,67 @@
+@import url('https://rsms.me/inter/inter.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  @apply bg-black text-white antialiased;
+}
+
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Inter var', sans-serif; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  @apply bg-indigo-500/30 text-white;
+}
+
+/* Smooth transition for all interactive elements */
+a, button {
+  @apply transition-all duration-200;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20;
+}
+
+/* Add these new keyframes */
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(var(--radius, 30px)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(var(--radius, 30px)) rotate(-360deg);
+  }
+}
+
+@keyframes rotate-scale {
+  from {
+    transform: rotate(0deg) scale(var(--scale, 1));
+  }
+  to {
+    transform: rotate(360deg) scale(var(--scale, 1));
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
